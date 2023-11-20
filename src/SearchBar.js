@@ -1,4 +1,3 @@
-// SearchBar.js
 import React from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
 

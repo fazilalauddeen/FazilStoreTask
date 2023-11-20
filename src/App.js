@@ -1,4 +1,3 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./App.css"
@@ -19,12 +18,12 @@ const App = () => {
   const productsPerPage = 6;
 
   useEffect(() => {
-    // Fetch categories
+
     axios.get('https://fakestoreapi.com/products/categories')
       .then(response => setCategories(['All Products', ...response.data]))
       .catch(error => console.error('Error fetching categories:', error));
 
-    // Fetch products
+  
     axios.get('https://fakestoreapi.com/products')
       .then(response => setProducts(response.data))
       .catch(error => console.error('Error fetching products:', error));
@@ -33,14 +32,14 @@ const App = () => {
   const filterProducts = () => {
     let filteredProducts = products;
 
-    // Filter by category
+
     if (selectedCategory !== 'All Products') {
       filteredProducts = filteredProducts.filter(product =>
         product.category === selectedCategory
       );
     }
 
-    // Filter by search term
+  
     if (searchTerm) {
       filteredProducts = filteredProducts.filter(product =>
         product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -58,12 +57,12 @@ const App = () => {
 
   const onSelectCategory = (category) => {
     setSelectedCategory(category);
-    setCurrentPage(1); // Reset to the first page when changing category
+    setCurrentPage(1); 
   };
 
   const onSearchTermChange = (term) => {
     setSearchTerm(term);
-    setCurrentPage(1); // Reset to the first page when changing the search term
+    setCurrentPage(1); 
   };
 
   const clearSearchTerm = () => {
